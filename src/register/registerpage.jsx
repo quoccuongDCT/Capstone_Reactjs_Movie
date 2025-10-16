@@ -1,12 +1,10 @@
-"use client"
-
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
 import { register } from "./../redux/slices/authSlice"
-// import { Button } from "./../components/ui/button"
-// import { Input } from "./../components/ui/input"
-// import { Label } from "./../components/ui/label"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { Label } from "../components/ui/label"
 import { Film } from "lucide-react"
 
 export default function RegisterPage() {
@@ -42,7 +40,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md mt-[56px]">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-4">
             <Film className="w-10 h-10 text-yellow-400" />

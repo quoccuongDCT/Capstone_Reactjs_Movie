@@ -1,4 +1,3 @@
-"use client"
 
 import { useState, useEffect } from "react"
 import MovieGrid from "./movie-grid"
@@ -13,8 +12,14 @@ export default function UpcomingMovies() {
     const fetchMovies = async () => {
       try {
         setLoading(true)
-        const data = await movieAPI.getMovies()
-        // console.log("test Fetched movies:", data)
+        let data = await movieAPI.getMovies()
+        // If data is not an array, try to get the array from .content
+        if (!Array.isArray(data) && Array.isArray(data?.content)) {
+          data = data.content
+        }
+        if (!Array.isArray(data)) {
+          throw new Error("Movies data is not an array")
+        }
 
         // Transform API data to match component format
         const transformedMovies = data.slice(0, 4).map((movie) => ({

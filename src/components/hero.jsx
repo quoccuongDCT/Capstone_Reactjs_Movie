@@ -11,10 +11,10 @@ export default function Hero() {
       try {
         setLoading(true)
         const data = await movieAPI.getMovies()
-        console.log("test Fetched featured movie:", data[0])
+        // console.log("test Fetched featured movie:", data[0])
 
         if (data && data.length > 0) {
-          const movie = data[0]
+          const movie = data.content[0]
           setFeaturedMovie({
             title: movie.tenPhim,
             poster: movie.hinhAnh,

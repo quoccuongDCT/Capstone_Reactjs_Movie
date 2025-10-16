@@ -1,12 +1,10 @@
-"use client"
-
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { fetchMovieDetail, clearMovieDetail } from "./../redux/slices/movieSlice"
-import Header from "./../components/header.jsx"
-import Footer from "./../components/footer.jsx"
-import MovieDetailContent from "./../components/movie-detail-content.jsx"
+import { fetchMovieDetail, clearMovieDetail } from "../../redux/slices/movieSlice"
+import Header from "../../components/header.jsx"
+import Footer from "../../components/footer.jsx"
+import MovieDetailContent from "../../components/movie-detail-content.jsx"
 
 export default function MovieDetailPage() {
   const dispatch = useDispatch()

@@ -1,22 +1,19 @@
-"use client"
-
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { getUserInfo } from "./../redux/slices/authSlice"
 import { userAPI } from "./../lib/api"
 import { AuthGuard } from "./../components/auth-guard"
 import Header from "./../components/header"
 import Footer from "./../components/footer"
-// import { Tabs, TabsContent, TabsList, TabsTrigger } from "./../components/ui/tabs"
-// import { Button } from "./../components/ui/button"
-// import { Input } from "./../components/ui/input"
-// import { Label } from "./../components/ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { Label } from "../components/ui/label"
 import { User, Ticket, Edit } from "lucide-react"
 import { format } from "date-fns"
 
 function ProfileContent() {
   const dispatch = useDispatch()
-  const { user } = useSelector((state) => state.auth)
   const [isEditing, setIsEditing] = useState(false)
   const [formData, setFormData] = useState({
     taiKhoan: "",

@@ -4,9 +4,9 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
 import { login } from "./../redux/slices/authSlice"
-// import { Button } from "./../components/ui/button"
-// import { Input } from "./../components/ui/input"
-// import { Label } from "./../components/ui/label"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { Label } from "../components/ui/label"
 import { Film } from "lucide-react"
 
 export default function LoginPage() {
@@ -100,7 +100,7 @@ export default function LoginPage() {
             <p className="text-gray-400">
               Don't have an account?{" "}
               <Link to="/register" className="text-yellow-400 hover:text-yellow-300 font-semibold">
-                Sign up
+                Register
               </Link>
             </p>
           </div>

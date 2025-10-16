@@ -10,8 +10,14 @@ export default function BestTVSeries() {
     const fetchSeries = async () => {
       try {
         setLoading(true)
-        const data = await movieAPI.getMovies()
-        console.log("test Fetched TV series:", data)
+        let data = await movieAPI.getMovies()
+        // Ensure data is an array
+        if (!Array.isArray(data) && Array.isArray(data?.content)) {
+          data = data.content
+        }
+        if (!Array.isArray(data)) {
+          throw new Error("TV series data is not an array")
+        }
         // Transform API data for TV series
         const transformedSeries = data.slice(4, 8).map((movie) => ({
           title: movie.tenPhim,

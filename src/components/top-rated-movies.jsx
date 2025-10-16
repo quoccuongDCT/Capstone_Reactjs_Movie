@@ -10,8 +10,14 @@ export default function TopRatedMovies() {
     const fetchMovies = async () => {
       try {
         setLoading(true)
-        const data = await movieAPI.getMovies()
-        console.log("test Fetched top rated movies:", data)
+        let data = await movieAPI.getMovies()
+        // Ensure data is an array
+        if (!Array.isArray(data) && Array.isArray(data?.content)) {
+          data = data.content
+        }
+        if (!Array.isArray(data)) {
+          throw new Error("Movies data is not an array")
+        }
 
         // Transform API data and sort by rating
         const transformedMovies = data
