@@ -31,11 +31,11 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
-    console.log("test API Response:", response.status, response.config.url)
+    // console.log("test API Response:", response.status, response.config.url)
     return response
   },
   (error) => {
-    console.error("test API Response Error:", error.message)
+    // console.error("test API Response Error:", error.message)
     if (error.response) {
       console.error("test Error Status:", error.response.status)
       console.error("test Error Data:", error.response.data)

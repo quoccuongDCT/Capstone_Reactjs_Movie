@@ -14,7 +14,7 @@ export default function UpcomingMovies() {
       try {
         setLoading(true)
         const data = await movieAPI.getMovies()
-        console.log("test Fetched movies:", data)
+        // console.log("test Fetched movies:", data)
 
         // Transform API data to match component format
         const transformedMovies = data.slice(0, 4).map((movie) => ({
