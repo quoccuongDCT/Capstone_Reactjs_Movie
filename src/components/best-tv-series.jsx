@@ -11,7 +11,7 @@ export default function BestTVSeries() {
       try {
         setLoading(true)
         const data = await movieAPI.getMovies()
-        console.log("[v0] Fetched TV series:", data)
+        console.log("test Fetched TV series:", data)
         // Transform API data for TV series
         const transformedSeries = data.slice(4, 8).map((movie) => ({
           title: movie.tenPhim,
@@ -24,7 +24,7 @@ export default function BestTVSeries() {
 
         setSeries(transformedSeries)
       } catch (err) {
-        console.error("[v0] Error loading TV series:", err)
+        console.error("test Error loading TV series:", err)
         // Fallback to static data
         setSeries([
           {
