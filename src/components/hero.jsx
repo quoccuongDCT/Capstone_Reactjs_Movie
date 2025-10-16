@@ -1,17 +1,54 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import { Play, Calendar, Clock } from "lucide-react"
 
+import { movieAPI } from "../lib/api"
 
 export default function Hero() {
+  const [featuredMovie, setFeaturedMovie] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchFeaturedMovie = async () => {
+      try {
+        setLoading(true)
+        const data = await movieAPI.getMovies()
+        console.log("[v0] Fetched featured movie:", data[0])
+
+        if (data && data.length > 0) {
+          const movie = data[0]
+          setFeaturedMovie({
+            title: movie.tenPhim,
+            poster: movie.hinhAnh,
+            description: movie.moTa,
+            year: new Date(movie.ngayKhoiChieu).getFullYear(),
+            rating: movie.danhGia,
+          })
+        }
+      } catch (err) {
+        console.error("[v0] Error loading featured movie:", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchFeaturedMovie()
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center pt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-MlilAhTtPmYea53OGhTsBNo5wKa5Bh.png"
+        <Image
+          src={
+            featuredMovie?.poster ||
+            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-MlilAhTtPmYea53OGhTsBNo5wKa5Bh.png"
+          }
           alt="Hero background"
-          // fill
+          fill
           className="object-cover"
-          // priority
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-transparent" />
       </div>
@@ -21,7 +58,15 @@ export default function Hero() {
         <div className="max-w-2xl">
           <p className="text-yellow-400 font-semibold mb-4">Movflix</p>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Unlimited <span className="text-yellow-400">Movie</span>, TVs Shows, & More.
+            {loading ? (
+              <>
+                Unlimited <span className="text-yellow-400">Movie</span>, TVs Shows, & More.
+              </>
+            ) : (
+              <>
+                Unlimited <span className="text-yellow-400">{featuredMovie?.title || "Movie"}</span>, TVs Shows, & More.
+              </>
+            )}
           </h1>
 
           {/* Movie Info */}
@@ -35,7 +80,7 @@ export default function Hero() {
             <span className="text-gray-300">Romance, Drama</span>
             <div className="flex items-center gap-2 text-yellow-400">
               <Calendar className="w-4 h-4" />
-              <span>2022</span>
+              <span>{featuredMovie?.year || "2022"}</span>
             </div>
             <div className="flex items-center gap-2 text-yellow-400">
               <Clock className="w-4 h-4" />

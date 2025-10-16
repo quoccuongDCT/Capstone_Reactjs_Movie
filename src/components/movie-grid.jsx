@@ -1,5 +1,6 @@
 import { Clock, ThumbsUp } from "lucide-react"
-// import Image from "next/image"
+import { getImageUrl } from "../lib/utils.js"
+import Image from "./Image"
 
 export default function MovieGrid({ title, subtitle, categories, movies, buttonVariant = "outline" }) {
   return (
@@ -34,19 +35,22 @@ export default function MovieGrid({ title, subtitle, categories, movies, buttonV
           {movies.map((movie, index) => (
             <div key={index} className="group cursor-pointer">
               {/* Movie Poster */}
-              <div className="relative aspect-[2/3] mb-4 rounded-lg overflow-hidden">
+              <div className="relative aspect-[2/3] mb-4 rounded-lg overflow-hidden bg-slate-800">
                 <Image
-                  src={movie.poster || "/placeholder.svg"}
+                  src={getImageUrl(movie.poster) || "/placeholder.svg"}
                   alt={movie.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    e.target.src = "/placeholder.svg"
+                  }}
                 />
               </div>
 
               {/* Movie Info */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-white font-semibold text-lg group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-white font-semibold text-lg group-hover:text-yellow-400 transition-colors line-clamp-1">
                     {movie.title}
                   </h3>
                   <span className="text-yellow-400 font-semibold">{movie.year}</span>
