@@ -4,9 +4,9 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
 import { register } from "./../redux/slices/authSlice"
-import { Button } from "./../components/ui/button"
-import { Input } from "./../components/ui/input"
-import { Label } from "./../components/ui/label"
+// import { Button } from "./../components/ui/button"
+// import { Input } from "./../components/ui/input"
+// import { Label } from "./../components/ui/label"
 import { Film } from "lucide-react"
 
 export default function RegisterPage() {

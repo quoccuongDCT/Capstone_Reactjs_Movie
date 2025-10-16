@@ -49,10 +49,10 @@ export default function BannerCarousel() {
         <section className="relative min-h-screen flex items-center pt-20">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <Image
+                <img
                     src={bannerImage || "/placeholder.svg?height=1080&width=1920&query=movie+banner"}
                     alt={currentBanner?.tenPhim || "Banner"}
-                    fill
+                    
                     className="object-cover"
                     priority
                     onError={() => handleImageError(currentBanner?.maBanner)}

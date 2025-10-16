@@ -3,14 +3,13 @@ import { useSelector } from "react-redux"
 import { AuthGuard } from "../././components/auth-guard"
 import Header from "../././components/header"
 import Footer from "../././components/footer"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../././components/ui/tabs"
-import { Button } from "../././components/ui/button"
-import { Input } from "../././components/ui/input"
-import { Label } from "../././components/ui/label"
-import { Textarea } from "../././components/ui/textarea"
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "../././components/ui/tabs"
+// import { Button } from "../././components/ui/button"
+// import { Input } from "../././components/ui/input"
+// import { Label } from "../././components/ui/label"
+// import { Textarea } from "../././components/ui/textarea"
 import { Film, Users, Trash2, Edit, Plus } from "lucide-react"
 import { movieAPI, userAPI } from "../././lib/api"
-import Image from "next/image"
 
 function AdminContent() {
   const { user } = useSelector((state) => state.auth)
@@ -379,7 +378,7 @@ function AdminContent() {
                   <div className="space-y-4">
                     {movies.map((movie) => (
                       <div key={movie.maPhim} className="bg-slate-700 rounded-lg p-4 flex items-start gap-4">
-                        <Image
+                        <img
                           src={movie.hinhAnh || "/placeholder.svg?height=120&width=80"}
                           alt={movie.tenPhim}
                           width={80}

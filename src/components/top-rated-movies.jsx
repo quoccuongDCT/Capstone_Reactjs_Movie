@@ -11,7 +11,7 @@ export default function TopRatedMovies() {
       try {
         setLoading(true)
         const data = await movieAPI.getMovies()
-        console.log("[v0] Fetched top rated movies:", data)
+        console.log("test Fetched top rated movies:", data)
 
         // Transform API data and sort by rating
         const transformedMovies = data
@@ -28,7 +28,7 @@ export default function TopRatedMovies() {
 
         setMovies(transformedMovies)
       } catch (err) {
-        console.error("[v0] Error loading top rated movies:", err)
+        console.error("test Error loading top rated movies:", err)
         // Fallback to static data
         setMovies([
           {

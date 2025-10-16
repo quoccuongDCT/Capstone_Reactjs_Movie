@@ -47,10 +47,10 @@ export default function MovieList() {
                             >
                                 {/* Movie Poster */}
                                 <div className="relative aspect-[2/3] overflow-hidden">
-                                    <Image
+                                    <img
                                         src={movieImage || "/placeholder.svg?height=450&width=300&query=movie+poster"}
                                         alt={movie.tenPhim}
-                                        fill
+                                        
                                         className="object-cover group-hover:scale-110 transition-transform duration-300"
                                         onError={() => handleImageError(movie.maPhim)}
                                     />

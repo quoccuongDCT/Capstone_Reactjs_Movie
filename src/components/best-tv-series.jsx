@@ -12,7 +12,6 @@ export default function BestTVSeries() {
         setLoading(true)
         const data = await movieAPI.getMovies()
         console.log("[v0] Fetched TV series:", data)
-
         // Transform API data for TV series
         const transformedSeries = data.slice(4, 8).map((movie) => ({
           title: movie.tenPhim,
@@ -94,10 +93,9 @@ export default function BestTVSeries() {
             <div key={index} className="group cursor-pointer">
               {/* Poster */}
               <div className="relative aspect-[2/3] mb-4 rounded-lg overflow-hidden">
-                <Image
+                <img
                   src={show.poster || "/placeholder.svg"}
                   alt={show.title}
-                  fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>

@@ -3,11 +3,11 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useNavigate } from "react-router-dom"
-import { fetchRoomSeats, resetBooking } from "../../redux/slices/bookingSlice"
-import { AuthGuard } from "../../components/auth-guard.jsx"
-import Header from "../../components/header.jsx"
-import Footer from "../../components/footer.jsx"
-import SeatSelection from "../../components/seat-selection.jsx"
+import { fetchRoomSeats, resetBooking } from "./../redux/slices/bookingSlice"
+import { AuthGuard } from "./../components/auth-guard.jsx"
+import Header from "./../components/header.jsx"
+import Footer from "./../components/footer.jsx"
+import SeatSelection from "./../components/seat-selection.jsx"
 
 function TicketRoomContent() {
   const dispatch = useDispatch()

@@ -1,10 +1,7 @@
-"use client"
-
-
 import { Link } from "react-router-dom"
 import { Play, Star, Calendar } from "lucide-react"
-import { Button } from "./ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
+// import { Button } from "./ui/button"
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
 import { format } from "date-fns"
 
 export default function MovieDetailContent({ movie }) {
@@ -13,10 +10,10 @@ export default function MovieDetailContent({ movie }) {
             {/* Hero Section */}
             <div className="relative min-h-[60vh] flex items-center">
                 <div className="absolute inset-0 z-0">
-                    <Image
+                    <img
                         src={movie.hinhAnh || "/placeholder.svg?height=1080&width=1920"}
                         alt={movie.tenPhim}
-                        fill
+                        
                         className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900/50" />
@@ -26,10 +23,10 @@ export default function MovieDetailContent({ movie }) {
                     <div className="grid md:grid-cols-[300px,1fr] gap-8 items-start">
                         {/* Movie Poster */}
                         <div className="relative aspect-[2/3] rounded-lg overflow-hidden shadow-2xl">
-                            <Image
+                            <img
                                 src={movie.hinhAnh || "/placeholder.svg?height=450&width=300"}
                                 alt={movie.tenPhim}
-                                fill
+                                
                                 className="object-cover"
                             />
                         </div>
@@ -78,7 +75,7 @@ export default function MovieDetailContent({ movie }) {
                                     className="data-[state=active]:bg-yellow-400 data-[state=active]:text-slate-900"
                                 >
                                     <div className="flex items-center gap-2">
-                                        <Image
+                                        <img
                                             src={heThong.logo || "/placeholder.svg?height=30&width=30"}
                                             alt={heThong.tenHeThongRap}
                                             width={30}
@@ -98,7 +95,7 @@ export default function MovieDetailContent({ movie }) {
                                         heThong.cumRapChieu.map((cumRap) => (
                                             <div key={cumRap.maCumRap} className="bg-slate-800 rounded-lg p-6">
                                                 <div className="flex items-start gap-4 mb-4">
-                                                    <Image
+                                                    <img
                                                         src={cumRap.hinhAnh || "/placeholder.svg?height=60&width=60"}
                                                         alt={cumRap.tenCumRap}
                                                         width={60}

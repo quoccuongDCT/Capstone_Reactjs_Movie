@@ -14,7 +14,7 @@ export default function UpcomingMovies() {
       try {
         setLoading(true)
         const data = await movieAPI.getMovies()
-        console.log("[v0] Fetched movies:", data)
+        console.log("test Fetched movies:", data)
 
         // Transform API data to match component format
         const transformedMovies = data.slice(0, 4).map((movie) => ({
@@ -29,7 +29,7 @@ export default function UpcomingMovies() {
         setMovies(transformedMovies)
         setError(null)
       } catch (err) {
-        console.error("[v0] Error loading movies:", err)
+        console.error("test Error loading movies:", err)
         setError("Failed to load movies")
         // Fallback to static data
         setMovies([

@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from "react-redux"
 import { selectSeat, bookTickets, clearSelectedSeats } from "../redux/slices/bookingSlice"
-import { Button } from "./ui/button"
+// import { Button } from "./ui/button"
 import { Armchair, X } from "lucide-react"
 
 
@@ -42,7 +42,7 @@ export default function SeatSelection({ roomInfo, maLichChieu }) {
             {/* Movie Info */}
             <div className="bg-slate-800 rounded-lg p-6 mb-8">
                 <div className="flex items-start gap-4">
-                    <Image
+                    <img
                         src={roomInfo.thongTinPhim?.hinhAnh || "/placeholder.svg?height=150&width=100"}
                         alt={roomInfo.thongTinPhim?.tenPhim}
                         width={100}
@@ -96,12 +96,12 @@ export default function SeatSelection({ roomInfo, maLichChieu }) {
                                                         onClick={() => handleSeatClick(seat)}
                                                         disabled={isBooked}
                                                         className={`w-10 h-10 rounded-t-lg flex items-center justify-center transition-all ${isBooked
-                                                                ? "bg-slate-600 cursor-not-allowed"
-                                                                : isSelected
-                                                                    ? "bg-yellow-400 text-slate-900"
-                                                                    : isVIP
-                                                                        ? "bg-pink-600 hover:bg-pink-500 text-white"
-                                                                        : "bg-slate-700 hover:bg-slate-600 text-white"
+                                                            ? "bg-slate-600 cursor-not-allowed"
+                                                            : isSelected
+                                                                ? "bg-yellow-400 text-slate-900"
+                                                                : isVIP
+                                                                    ? "bg-pink-600 hover:bg-pink-500 text-white"
+                                                                    : "bg-slate-700 hover:bg-slate-600 text-white"
                                                             }`}
                                                         title={`Seat ${seat.tenGhe} - ${seat.giaVe.toLocaleString()} VND`}
                                                     >

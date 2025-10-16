@@ -7,12 +7,11 @@ import { userAPI } from "./../lib/api"
 import { AuthGuard } from "./../components/auth-guard"
 import Header from "./../components/header"
 import Footer from "./../components/footer"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./../components/ui/tabs"
-import { Button } from "./../components/ui/button"
-import { Input } from "./../components/ui/input"
-import { Label } from "./../components/ui/label"
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "./../components/ui/tabs"
+// import { Button } from "./../components/ui/button"
+// import { Input } from "./../components/ui/input"
+// import { Label } from "./../components/ui/label"
 import { User, Ticket, Edit } from "lucide-react"
-import Image from "next/image"
 import { format } from "date-fns"
 
 function ProfileContent() {
@@ -255,7 +254,7 @@ function ProfileContent() {
                     {userInfo.thongTinDatVe.map((booking, index) => (
                       <div key={index} className="bg-slate-700 rounded-lg p-6">
                         <div className="flex items-start gap-4">
-                          <Image
+                          <img
                             src={booking.hinhAnh || "/placeholder.svg?height=120&width=80"}
                             alt={booking.tenPhim}
                             width={80}

@@ -1,6 +1,4 @@
 import axios from "axios"
-
-// Create axios instance with base configuration
 const api = axios.create({
   baseURL: "https://movienew.cybersoft.edu.vn/api",
   headers: {
@@ -8,7 +6,7 @@ const api = axios.create({
     TokenCybersoft:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA4NyIsIkhldEhhblN0cmluZyI6IjIzLzAzLzIwMjYiLCJIZXRIYW5UaW1lIjoiMTc3NDIyNDAwMDAwMCIsIm5iZiI6MTc0NzI2NzIwMCwiZXhwIjoxNzc0Mzk2ODAwfQ.8AWlFkAkN_xwXppJe_FTgiJXS4WlItjxLy5olIf33HY",
   },
-  timeout: 10000, // Added 10 second timeout
+  timeout: 100000, // Added 10 second timeout
 })
 
 const getToken = () => {
@@ -33,14 +31,14 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
-    console.log("[v0] API Response:", response.status, response.config.url)
+    console.log("test API Response:", response.status, response.config.url)
     return response
   },
   (error) => {
-    console.error("[v0] API Response Error:", error.message)
+    console.error("test API Response Error:", error.message)
     if (error.response) {
-      console.error("[v0] Error Status:", error.response.status)
-      console.error("[v0] Error Data:", error.response.data)
+      console.error("test Error Status:", error.response.status)
+      console.error("test Error Data:", error.response.data)
     }
     return Promise.reject(error)
   },

@@ -1,8 +1,5 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Play, Calendar, Clock } from "lucide-react"
-
 import { movieAPI } from "../lib/api"
 
 export default function Hero() {
@@ -14,7 +11,7 @@ export default function Hero() {
       try {
         setLoading(true)
         const data = await movieAPI.getMovies()
-        console.log("[v0] Fetched featured movie:", data[0])
+        console.log("test Fetched featured movie:", data[0])
 
         if (data && data.length > 0) {
           const movie = data[0]
@@ -27,7 +24,7 @@ export default function Hero() {
           })
         }
       } catch (err) {
-        console.error("[v0] Error loading featured movie:", err)
+        console.error("test Error loading featured movie:", err)
       } finally {
         setLoading(false)
       }
@@ -40,15 +37,14 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center pt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <img
           src={
             featuredMovie?.poster ||
             "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-MlilAhTtPmYea53OGhTsBNo5wKa5Bh.png"
           }
           alt="Hero background"
-          fill
           className="object-cover"
-          priority
+          priority="true"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-transparent" />
       </div>

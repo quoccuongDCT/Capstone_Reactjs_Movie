@@ -1,6 +1,5 @@
 import { Clock, ThumbsUp } from "lucide-react"
 import { getImageUrl } from "../lib/utils.js"
-import Image from "./Image"
 
 export default function MovieGrid({ title, subtitle, categories, movies, buttonVariant = "outline" }) {
   return (
@@ -36,10 +35,10 @@ export default function MovieGrid({ title, subtitle, categories, movies, buttonV
             <div key={index} className="group cursor-pointer">
               {/* Movie Poster */}
               <div className="relative aspect-[2/3] mb-4 rounded-lg overflow-hidden bg-slate-800">
-                <Image
+                <img
                   src={getImageUrl(movie.poster) || "/placeholder.svg"}
                   alt={movie.title}
-                  fill
+                  
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
                     e.target.src = "/placeholder.svg"
