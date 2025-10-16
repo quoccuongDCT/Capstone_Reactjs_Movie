@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
@@ -31,9 +29,28 @@ export default function LoginPage() {
     const result = await dispatch(login(formData))
 
     if (login.fulfilled.match(result)) {
+      const userData = result.payload
+
+      console.log("✅ Login success:", userData)
+
+      // 🟡 Lưu token vào localStorage
+      if (userData?.content?.accessToken) {
+        localStorage.setItem("USER_TOKEN", userData.content.accessToken)
+        localStorage.setItem("USER_INFO", JSON.stringify(userData.content))
+      } else if (userData?.accessToken) {
+        // Trường hợp API trả token trực tiếp ở ngoài
+        localStorage.setItem("USER_TOKEN", userData.accessToken)
+        localStorage.setItem("USER_INFO", JSON.stringify(userData))
+      } else {
+        console.warn("⚠️ Token không tồn tại trong response:", userData)
+      }
+
       navigate("/")
+    } else {
+      console.error("❌ Login failed:", result.error)
     }
   }
+
 
   return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
